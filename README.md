@@ -115,7 +115,7 @@ Below are some example screens from PhishSight AI demonstrating how the extensio
 
 The browser extension appears on the current page and lets the user analyze the active site or pasted text.
 
-![Extension popup](OUTPUT-1.jpg)
+![Extension popup](OUTPUT-1.png)
 
 ### 2. Web page analysis – safe vs phishing
 
@@ -123,17 +123,17 @@ PhishSight AI analyzes the current web page content and URL, then labels it as s
 
 - Safe web page (green label):
 
-![Safe web page](OUTPUT-2.jpg)
+![Safe web page](OUTPUT-2.png)
 
 - Phishing web page (red label with gaze assist available only for phishing):
 
-![Phishing web page](OUTPUT-3-2.jpg)
+![Phishing web page](OUTPUT-3-2.png)
 
 ### 3. Gaze‑assist warning on risky pages
 
 If the user is not looking at the domain/URL area before clicking, a subtle warning reminds them to verify the address first.
 
-![Gaze‑assist warning popup](OUTPUT-4-3.jpg)
+![Gaze‑assist warning popup](OUTPUT-4-3.png)
 
 ### 4. Email analysis
 
@@ -141,17 +141,17 @@ PhishSight AI can also analyze email content and classify it as safe or phishing
 
 - Safe email example:
 
-![Safe email 1](OUTPUT-5-4.jpg)
+![Safe email 1](OUTPUT-5-4.png)
 
 - Safe email example (additional case):
 
-![Safe email 2](OUTPUT-6-5.jpg)
+![Safe email 2](OUTPUT-6-5.png)
 
 ### 5. SMS / message analysis
 
 The system can analyze SMS or short messages and detect both safe and phishing patterns.
 
-![SMS analysis – safe and phishing cases](OUTPUT-7-6.jpg)
+![SMS analysis – safe and phishing cases](OUTPUT-7-6.png)
 
 ## 👩‍🎓 Academic Project
 
