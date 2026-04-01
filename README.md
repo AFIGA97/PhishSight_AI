@@ -127,13 +127,13 @@ PhishSight AI analyzes the current web page content and URL, then labels it as s
 
 - Phishing web page (red label with gaze assist available only for phishing):
 
-![Phishing web page](OUTPUT-3-2.png)
+![Phishing web page](OUTPUT-3.png)
 
 ### 3. Gaze‑assist warning on risky pages
 
 If the user is not looking at the domain/URL area before clicking, a subtle warning reminds them to verify the address first.
 
-![Gaze‑assist warning popup](OUTPUT-4-3.png)
+![Gaze‑assist warning popup](OUTPUT-4.png)
 
 ### 4. Email analysis
 
@@ -141,11 +141,11 @@ PhishSight AI can also analyze email content and classify it as safe or phishing
 
 - Safe email example:
 
-![Safe email 1](OUTPUT-5-4.png)
+![Safe email 1](OUTPUT-5.png)
 
 - Safe email example (additional case):
 
-![Safe email 2](OUTPUT-6-5.png)
+![Safe email 2](OUTPUT-6.png)
 
 ### 5. SMS / message analysis
 
