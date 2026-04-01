@@ -143,15 +143,15 @@ PhishSight AI can also analyze email content and classify it as safe or phishing
 
 ![Safe email 1](OUTPUT-5.png)
 
-- Safe email example (additional case):
+- Phishing email example (additional case):
 
-![Safe email 2](OUTPUT-6.png)
+![Phishing email 2](OUTPUT-6.png)
 
 ### 5. SMS / message analysis
 
 The system can analyze SMS or short messages and detect both safe and phishing patterns.
 
-![SMS analysis – safe and phishing cases](OUTPUT-7-6.png)
+![SMS analysis – safe and phishing cases](OUTPUT-7.png)
 
 ## 👩‍🎓 Academic Project
 
