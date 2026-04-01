@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>PhishSight AI</title>
+  <style>
+    :root {
+      --accent: #E0AF2D;           /* radiant gold */
+      --accent-soft: #F3CA52;      /* softer gold */
+      --text-main: #f5f5f5;
+      --text-muted: #cccccc;
+      --button-text: #000000;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      width: 360px;
+      padding: 8px;
+      margin: 0;
+      background: transparent;
+      color: var(--text-main);
+    }
+
+    #container {
+      padding: 10px;
+      border-radius: 10px;
+      background: linear-gradient(
+        145deg,
+        rgba(0, 0, 0, 0.92),
+        rgba(20, 20, 20, 0.85)
+      );
+      border: 1px solid rgba(224, 175, 45, 0.6);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(4px);
+    }
+
+    #title {
+      font-size: 20px;
+      font-weight: 900;
+      text-align: center;
+      margin-bottom: 6px;
+      color: var(--accent);
+      letter-spacing: 0.6px;
+      text-shadow: 0 0 6px rgba(0, 0, 0, 0.9);
+    }
+
+    #status {
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      padding: 6px 8px;
+      border-radius: 4px;
+      background: linear-gradient(
+        90deg,
+        rgba(243, 202, 82, 0.15),
+        rgba(255, 255, 255, 0.05)
+      );
+      color: var(--text-main);
+      border: 1px solid rgba(243, 202, 82, 0.4);
+    }
+
+    .section-title {
+      margin-top: 10px;
+      font-weight: bold;
+      font-size: 14px;
+      color: var(--accent-soft);
+    }
+
+    button {
+      margin-top: 6px;
+      padding: 6px 10px;
+      border: none;
+      border-radius: 4px;
+      background: linear-gradient(135deg, #ffd700, #ffb300);
+      color: var(--button-text);
+      font-size: 13px;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+    }
+
+    button:hover {
+      background: linear-gradient(135deg, #ffea80, #ffc400);
+    }
+
+    textarea {
+      width: 100%;
+      height: 100px;
+      padding: 6px;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      border-radius: 4px;
+      border: 1px solid #555555;
+      resize: vertical;
+      background: linear-gradient(
+        145deg,
+        rgba(0, 0, 0, 0.95),
+        rgba(25, 25, 25, 0.95)
+      );
+      color: var(--text-main);
+    }
+
+    textarea::placeholder {
+      color: #777777;
+    }
+
+    #result {
+      margin-top: 12px;
+      padding: 10px;
+      border-radius: 8px;
+      background: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.95),
+        rgba(30, 30, 30, 0.9)
+      );
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.9);
+      font-size: 13px;
+      border: 1px solid rgba(60, 60, 60, 0.9);
+      display: none;
+    }
+
+    #labelBox {
+      margin-bottom: 4px;
+      padding: 6px;
+      border-radius: 4px;
+      font-weight: bold;
+      text-align: center;
+      color: #000000;
+      font-size: 14px;
+      background: linear-gradient(135deg, #444444, #222222);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    #labelBox.label-safe {
+      background: linear-gradient(135deg, #00c853, #aeea00);
+    }
+
+    #labelBox.label-phishing {
+      background: linear-gradient(135deg, #ff1744, #ff9100);
+    }
+
+    #labelIcon {
+      font-size: 16px;
+    }
+
+    #explanation {
+      margin-bottom: 6px;
+      font-size: 12px;
+      color: var(--text-main);
+    }
+
+    #confidenceRow {
+      display: none !important;
+    }
+
+    #confidence {
+      font-weight: bold;
+      color: var(--accent-soft);
+    }
+
+    #tokens {
+      font-style: normal;
+      color: var(--text-main);
+    }
+
+    .token-chip {
+      display: inline-block;
+      margin: 2px 4px 0 0;
+      padding: 2px 6px;
+      border-radius: 10px;
+      background: rgba(255, 193, 7, 0.18);
+      border: 1px solid rgba(255, 193, 7, 0.6);
+      font-size: 12px;
+      font-weight: 600;
+      color: #ffd54f;
+    }
+
+    #tip {
+      font-size: 13px;
+      margin-top: 8px;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    #tipIcon {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #fffbe6, #ffeb3b);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: #664d00;
+      box-shadow: 0 0 6px rgba(255, 235, 59, 0.9);
+      flex-shrink: 0;
+    }
+
+    #tipText {
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    #feedbackRow {
+      margin-top: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    #feedbackRow button {
+      min-width: 110px;
+      font-size: 11px;
+      padding: 4px 8px;
+      opacity: 0.85;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    #feedbackRow button:hover {
+      opacity: 1;
+    }
+
+    #feedbackMessage {
+      margin-top: 4px;
+      text-align: center;
+      font-size: 11px;
+      color: #aaaaaa;
+      min-height: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div id="title">PhishSight AI</div>
+
+    <div id="status">Choose a mode and click analyze.</div>
+
+    <div class="section-title">1) Analyze current web page</div>
+    <button id="analyzePageBtn">Analyze Current Page</button>
+
+    <div class="section-title">2) Analyze pasted email/SMS</div>
+    <textarea id="messageInput" placeholder="Paste the email or SMS text here..."></textarea>
+    <button id="analyzeTextBtn">Analyze Pasted Text</button>
+
+    <div id="result">
+      <div id="labelBox">
+        <span id="labelIcon"></span>
+        <span>Label:</span>
+        <span id="label"></span>
+      </div>
+
+      <!-- NEW: static explanation line -->
+      <div id="explanation"></div>
+
+      
+
+      <!-- Confidence row (hidden by CSS) -->
+      <div id="confidenceRow">
+        Confidence: <span id="confidence"></span>
+      </div>
+
+      <div>
+        Risky words: <span id="tokens"></span>
+      </div>
+
+      <!-- Security tip with bulb icon -->
+      <div id="tip">
+        <div id="tipIcon">💡</div>
+        <div id="tipText"></div>
+      </div>
+
+      <!-- Feedback buttons with spacing -->
+      <div id="feedbackRow">
+        <button id="feedbackSafeBtn">Mark as Safe</button>
+        <button id="feedbackScamBtn">Mark as Scam</button>
+      </div>
+
+      <!-- Feedback confirmation near buttons -->
+      <div id="feedbackMessage"></div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

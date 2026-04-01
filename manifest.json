@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "PhishSight AI",
+  "version": "1.0",
+  "description": "Explainable phishing detection for emails, SMS, and web pages.",
+  "permissions": ["storage", "tabs", "scripting"],
+  "host_permissions": [
+    "http://127.0.0.1:8000/*",
+    "<all_urls>"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "PhishSight AI"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["gaze.html", "gaze.js","camera-setup.html", "webgazer.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
+
+
+
