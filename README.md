@@ -129,7 +129,6 @@ PhishSight AI analyzes the current web page content and URL, then labels it as s
 
 ![Phishing web page](OUTPUT-3-2.jpg)
 
-
 ### 3. Gaze‑assist warning on risky pages
 
 If the user is not looking at the domain/URL area before clicking, a subtle warning reminds them to verify the address first.
@@ -144,7 +143,7 @@ PhishSight AI can also analyze email content and classify it as safe or phishing
 
 ![Safe email 1](OUTPUT-5-4.jpg)
 
-- Phishing email example (additional case):
+- Safe email example (additional case):
 
 ![Safe email 2](OUTPUT-6-5.jpg)
 
